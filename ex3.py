@@ -16,6 +16,6 @@ class MapReduce:
         for key, value in chain.from_iterable(result.get()):
             mid_data[key].append(value)
 
-        result = [result.get() for result in [pool.apply_async(reduce_func, args=(key, value)) for key, value in mid_data.items()]]
-        return result
+        result = pool.map_async(reduce_func, mid_data.items())
+        return result.get()
 

@@ -11,7 +11,8 @@ def count_words(file):
         return list()
 
 
-def reduce(word, count_list):
+def reduce(item_to_reduce):
+    word, count_list = item_to_reduce
     return word, sum(count_list)
 
 
