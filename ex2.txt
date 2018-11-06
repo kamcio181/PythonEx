@@ -1,4 +1,4 @@
 1. reading/writing xls/xlsx = pandas lib
 2. numeric calculations = math lib
-3. parsing csv = csv lib
+3. parsing csv = pandas or csv lib
 4. parsing json = json lib
