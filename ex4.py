@@ -1,36 +1,23 @@
+from ex3 import MapReduce
 from collections import Counter
-import multiprocessing as mp
 
-# paths = input('Enter paths to files separated with space').split(sep=' ')
+
+def count_words(file):
+    try:
+        return list(Counter(open(file, 'r').read().replace('\n', ' ').replace(',', '').replace('.', '').
+                            replace(';', '').lower().split(' ')).items())
+    except FileNotFoundError:
+        print('File %s not found' % file)
+        return list()
+
+
+def reduce(word, count_list):
+    return word, sum(count_list)
+
+
+# paths = input("Enter file paths separated by space\n").split(sep=' ')
 paths = ['text1.txt', 'text2.txt', 'text3.txt', 'text4.txt', 'text5.txt']
-print(paths)
-finalResult = Counter()
+map_reduce = MapReduce(paths)
 
-
-def map_reduce(map_func, reduce_func, num_workers):
-    pool = mp.Pool(processes=num_workers)
-    global paths
-    results = [pool.apply_async(map_func, args=(file,)) for file in paths]  # how many times?
-    results = [pool.apply_async(reduce_func, args=(result.get(),)) for result in results]
-    for result in results:
-        print(result.get())
-    global finalResult
-    print(finalResult)
-
-
-def count_words_in_file(file):
-    return Counter(open(file, 'r').read().replace('\n', ' ').replace(',', '').replace('.', '').replace(';', '')
-                   .lower().split(' '))
-
-
-def reduce(counter):
-    global finalResult
-    print('reduce c')
-    print(counter)
-    finalResult += counter
-    print('reduce f')
-    print(finalResult)
-
-
-
-map_reduce(count_words_in_file, reduce, 1)
+counted_words = map_reduce.map_reduce(count_words, reduce, 4)
+print([x[0] for x in Counter(dict(counted_words)).most_common(20)])
