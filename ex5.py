@@ -25,7 +25,7 @@ def process(retries):
             try:
                 record = get_next_record(connection, TIMEOUT)
                 if record is None:
-                    return              #TODO None przerywa czy probuje pobrac kolejny?
+                    return  # all records processed, use 'continue' in order to check if new record showed up
                 do_work(record)
             except ConnectionException:
                 attempts = 0

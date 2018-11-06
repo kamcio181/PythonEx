@@ -7,7 +7,7 @@ def count_words(file):
         return list(Counter(open(file, 'r').read().replace('\n', ' ').replace(',', '').replace('.', '').
                             replace(';', '').lower().split(' ')).items())
     except FileNotFoundError:
-        print('File %s not found' % file)
+        print('File \'%s\' not found' % file)
         return list()
 
 
@@ -16,8 +16,8 @@ def reduce(item_to_reduce):
     return word, sum(count_list)
 
 
-# paths = input("Enter file paths separated by space\n").split(sep=' ')
-paths = ['text1.txt', 'text2.txt', 'text3.txt', 'text4.txt', 'text5.txt']
+paths = input("Enter file paths separated by space\n").split(sep=' ')
+
 map_reduce = MapReduce(paths)
 
 counted_words = map_reduce.map_reduce(count_words, reduce, 4)
