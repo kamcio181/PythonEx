@@ -1,9 +1,9 @@
 from datetime import date
-from sqlalchemy.model.actor import Actor
-from sqlalchemy.base import Session, engine, Base
-from sqlalchemy.model.contact_details import ContactDetails
-from sqlalchemy.model.movie import Movie
-from sqlalchemy.model.stuntman import Stuntman
+from base import Session, engine, Base
+from model.actor import Actor
+from model.contact_details import ContactDetails
+from model.movie import Movie
+from model.stuntman import Stuntman
 
 Base.metadata.create_all(engine)
 

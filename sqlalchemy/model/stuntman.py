@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship, backref
-from sqlalchemy.base import Base
+from base import Base
+
 
 class Stuntman(Base):
     __tablename__ = 'stuntman'

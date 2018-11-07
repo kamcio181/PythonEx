@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.base import Base
+from base import Base
 
 
 class ContactDetails(Base):
