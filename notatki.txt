@@ -1,0 +1,128 @@
+staticmethods
+classmethods
+decorators
+generator
+list and dicts comprehension
+my_list = [n for n in nums]
+my_dict = {name: hero for name, hero in zip(names, heroes)}
+my_set = {n for n in nums}
+my_gen = (n for n in nums)
+
+def method(self):
+	pass
+
+@classmethod
+def set_raise_amount(cls, amount):
+	cls.raise_amount = amount
+
+to samo co 
+
+Employee.raise_amount = amount
+
+alternatywny konstruktor
+
+@classmethod
+def from_string(cls, string):
+	first, last, salary = string.split('-')
+	return cls(first, last, salary)
+	
+@staticmethod
+def is_workday(day):
+    return not(day.weekday() == 5 or day.weekday() == 6)
+	
+dunder methods
+
+def __repr__(self):
+	return 'Employee({}, {}, {})'.format(self.first, self.last, self.salary)
+	
+def __str__(self):
+	return 'czytelna wersja'
+	
+def __add__(self, other):
+__mul__ itd
+
+
+@property
+def email(self):
+	return '{} {}'.format(self.first, self.last)
+	
+	
+@fullname.setter
+def fullname(self, name):
+	first, last = name.split(' ')
+	self.first = first
+	self.last = last
+
+	
+	listy 
+	instert(index, item)
+	append(item)
+	extend(index, iterable)
+	remove(item)
+	pop() - remove last
+	reverse()
+	sort()
+	sort(reversed=True)
+	sorted_list = sorted(list)
+	
+	max(list)
+	sum(list)
+	
+	list.index(item)
+	item in list - sprawdzanie czy jest
+	
+	for index, item in enumerate(list):
+		print(index, item)
+	
+	for index, item in enumerate(list, start=1):
+		print(index, item)  # first index = 1
+		
+	drukowanie listy
+	
+	list_str = ', '.join(list)
+	
+	
+	sets - bez duplikatow i porzadku
+	zoptymalizowane pod sprawdzanie czy zawiera - item in set
+	
+	set.intersection(set2) - wspolne
+	set.difference(set2) - rozne
+	set.union(set2) - wszystko
+	
+	set tworzymy przez set()
+	
+	dict
+	kluczem moze byc wszystko co immutable
+	wartosc pobieramy przez
+	dict[key] - wywali KeyError jak nie ma
+	dict.get(key) - da None jak nie ma
+	dict.get(key, 'Not found') = da drugi argument jak nie ma
+	
+	zmiana wartosci bezposrenio
+	dict[key] = new value
+	dict.update(new_dict_z_kilkoma_wartosciami_nowymi_lub_nie) zmiana kilku na raz
+	
+	del dict[key]
+	value = dict.pop(key)
+	
+	len(dict)
+	dict.keys()
+	dict.values()
+	dict.items() - list of tuples
+	
+	
+	is sprawdza czy to ten sam obiekt
+	== czy wartosci obiektu sa takie same
+	
+	co bedzie false
+	
+	False
+	None
+	0
+	empty string list tuple mapa (np. dict, set)
+	
+	* zeby przekazac zawartosc np listy jako argumenty
+	** zeby przekazac zawartosc slownika jako argumenty, np 'name': 'Jan' -> ustawia parametr funkcji name jako Jan - jak argument jest 2 razy to error, jak nie ma takiego parametru to tez error
+	
+	
+	if not 1 <= month <= 12

@@ -20,5 +20,5 @@ paths = input("Enter file paths separated by space\n").split(sep=' ')
 
 map_reduce = MapReduce(paths)
 
-counted_words = map_reduce.map_reduce(count_words, reduce, 4)
+counted_words = map_reduce.map_reduce(count_words, reduce, 4)  # example number of processes
 print([x[0] for x in Counter(dict(counted_words)).most_common(20)])

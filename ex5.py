@@ -1,16 +1,4 @@
-TIMEOUT = 5000
-
-
-def get_next_record(connection, timeout):
-    return 0
-
-
-def connect():
-    return 0
-
-
-def do_work(record):
-    pass
+TIMEOUT = 5000  # example timeout
 
 
 def process(retries):
@@ -43,6 +31,21 @@ class ConnectionException(Exception):
 class ProcessingException(Exception):
     def __str__(self):
         return 'ProcessingException'
+
+
+#  function mock
+
+
+def get_next_record(connection, timeout):
+    return 0
+
+
+def connect():
+    return 0
+
+
+def do_work(record):
+    pass
 
 
 process(5)
